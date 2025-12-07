@@ -3,135 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather Dashboard</title>
+  <title>Modern Weather Dashboard</title>
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Animated Weather Icons (must load BEFORE main.js) -->
+  <!-- Icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="page">
+  <div class="app-container">
+
+    <!-- Header -->
     <header class="header">
-      <h1>Weather Dashboard</h1>
+      <h1 class="title">Weather Dashboard</h1>
+      <p class="subtitle">Modern UI — Worldwide Forecasts & Insights</p>
     </header>
 
-    <main class="grid-layout">
-      <!-- Current Location Card -->
-      <section class="card main-card" id="localWeatherCard">
+    <main class="layout">
+
+      <!-- SEARCH WEATHER -->
+      <section class="card search-card glass">
         <div class="card-header">
-          <h2>Your Location</h2>
-          <span class="tag" id="localLocationLabel">Detecting...</span>
+          <h2>Search City</h2>
         </div>
 
-        <div class="card-body current-body">
-          <div class="icon-block">
-            <canvas id="localIcon" width="100" height="100"></canvas>
-          </div>
-          <div class="info-block">
-            <div class="temp" id="localTemp">--°C</div>
-            <div class="text" id="localCond">Loading weather...</div>
-            <div class="chips" id="localDetails"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Search City -->
-      <section class="card search-card">
-        <div class="card-header">
-          <h2>Search City Weather</h2>
-        </div>
-
-        <div class="card-body">
+        <div class="body">
           <div class="search-row">
-            <input type="text" id="cityInput" placeholder="Type any city worldwide..." />
+            <input id="cityInput" type="text" placeholder="Search any city worldwide..." />
             <button id="searchBtn">Search</button>
           </div>
 
           <div id="loader" class="loader hidden"></div>
 
-          <div id="searchResult" class="search-result hidden">
-            <div class="search-top">
+          <div id="searchResult" class="result hidden">
+            <div class="result-top">
               <div>
-                <h3 id="cityName" class="search-city"></h3>
-                <p id="condition" class="search-cond"></p>
+                <h3 id="cityName"></h3>
+                <p id="condition" class="cond"></p>
               </div>
-              <canvas id="iconCanvas" width="100" height="100"></canvas>
+              <canvas id="iconCanvas" width="80" height="80"></canvas>
             </div>
 
-            <div class="search-bottom">
-              <span id="temperature" class="search-temp">--°C</span>
+            <div class="result-bottom">
+              <h1 id="temperature" class="big-temp"></h1>
               <div class="chips" id="searchDetails"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Continent → Country → City (global) -->
-      <section class="card locations-card">
+      <!-- WORLD WEATHER -->
+      <section class="card world-card glass">
         <div class="card-header">
-          <h2>Locations Weather (World)</h2>
+          <h2>World Weather (Select)</h2>
         </div>
 
-        <div class="card-body">
-          <div class="select-row">
-            <select id="continentSelect">
-              <option value="">Continent</option>
-            </select>
-            <select id="countrySelect" disabled>
-              <option value="">Country</option>
-            </select>
+        <div class="body">
+          <div class="select-grid">
+            <select id="continentSelect"><option value="">Continent</option></select>
+            <select id="countrySelect" disabled><option value="">Country</option></select>
           </div>
 
           <div class="search-row small">
-            <input type="text" id="locCityInput" placeholder="City in selected country..." disabled />
+            <input id="locCityInput" type="text" placeholder="City in selected country..." disabled />
             <button id="locCityBtn" disabled>Load</button>
           </div>
 
-          <div id="locationWeather" class="location-result hidden">
-            <div class="location-top">
+          <div id="locationWeather" class="result hidden">
+            <div class="result-top">
               <div>
-                <h3 id="locCityName" class="search-city"></h3>
-                <p id="locCondition" class="search-cond"></p>
+                <h3 id="locCityName"></h3>
+                <p id="locCondition" class="cond"></p>
               </div>
-              <canvas id="locIconCanvas" width="80" height="80"></canvas>
+              <canvas id="locIconCanvas" width="70" height="70"></canvas>
             </div>
 
-            <div class="location-bottom">
-              <span id="locTemperature" class="search-temp">--°C</span>
+            <div class="result-bottom">
+              <h1 id="locTemperature" class="big-temp"></h1>
               <div class="chips" id="locDetails"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 7-Day Forecast -->
-      <section class="card forecast-card">
+      <!-- FORECAST -->
+      <section class="card forecast-card glass">
         <div class="card-header">
           <h2>7-Day Forecast</h2>
         </div>
-        <div class="card-body">
-          <div id="forecast" class="forecast-row"></div>
+
+        <div class="body">
+          <div id="forecast" class="forecast-grid"></div>
         </div>
       </section>
 
-      <!-- Hourly Chart + Strip -->
-      <section class="card chart-card">
+      <!-- HOURLY -->
+      <section class="card hourly-card glass">
         <div class="card-header">
           <h2>Next 24 Hours</h2>
         </div>
 
-        <div class="card-body">
+        <div class="body">
           <canvas id="hourlyChart"></canvas>
           <div id="hourlyStrip" class="hourly-strip"></div>
         </div>
       </section>
+
     </main>
   </div>
 
-  <!-- Main JS -->
   <script type="module" src="/main.js"></script>
 </body>
 </html>
