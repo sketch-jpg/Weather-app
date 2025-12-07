@@ -1,25 +1,20 @@
-/* GLOBAL UI THEME – MODERN DARK GLASS */
-:root {
-  --bg: #0f1115;
-  --card-bg: rgba(255,255,255,0.06);
-  --stroke: rgba(255,255,255,0.1);
-  --text: #e6e8ec;
-  --subtext: #9aa0ac;
-  --accent: #7aa7fa;
-  --chip-bg: rgba(255,255,255,0.08);
-  --chip-border: rgba(255,255,255,0.15);
-}
+/* APPLE-LIKE UI THEME — LIGHT, SOFT, GLASS */
 
-* {
-  box-sizing: border-box;
+:root {
+  --bg: #f5f5f7;
+  --card-bg: rgba(255,255,255,0.55);
+  --border: rgba(0,0,0,0.1);
+  --shadow: 0 8px 25px rgba(0,0,0,0.08);
+  --text: #1a1a1c;
+  --subtext: #6d6d72;
+  --accent: #007aff;
 }
 
 body {
   margin: 0;
   background: var(--bg);
-  font-family: system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, sans-serif;
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
@@ -28,87 +23,84 @@ body {
   padding: 30px 20px;
 }
 
-/* HEADER */
+/* Header */
 
 .title {
-  font-size: 30px;
-  font-weight: 600;
   margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  font-size: 14px;
   color: var(--subtext);
   margin-top: 4px;
 }
 
-/* CARD BASE */
+/* Layout */
+
+.layout {
+  display: grid;
+  gap: 25px;
+}
+
+/* Card / Apple Glass Panel */
 
 .card {
-  padding: 20px;
-  border-radius: 18px;
-  margin-bottom: 20px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 22px;
 }
 
 .glass {
   background: var(--card-bg);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--stroke);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  backdrop-filter: blur(22px);
+  border: 1px solid var(--border);
 }
+
+/* Card Header */
 
 .card-header h2 {
-  margin: 0 0 12px;
+  margin: 0 0 15px 0;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* LAYOUT */
-
-.layout {
-  display: grid;
-  gap: 22px;
-}
-
-/* SEARCH */
+/* Search Row */
 
 .search-row {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 input {
   flex: 1;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: #1c1e24;
-  border: 1px solid var(--stroke);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: white;
+  font-size: 15px;
   color: var(--text);
-  font-size: 14px;
 }
 
 button {
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: var(--accent);
-  color: #fff;
+  padding: 14px 18px;
+  border-radius: 14px;
   border: none;
-  font-weight: 500;
+  background: var(--accent);
+  color: white;
+  font-size: 15px;
   cursor: pointer;
 }
 
-button:disabled {
-  opacity: .5;
-}
-
-/* RESULT */
+/* Result Card */
 
 .result {
   margin-top: 18px;
-  padding: 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .result-top {
@@ -118,14 +110,14 @@ button:disabled {
 }
 
 .big-temp {
-  font-size: 40px;
-  font-weight: 600;
-  margin: 10px 0;
+  font-size: 46px;
+  font-weight: 700;
+  margin: 12px 0;
 }
 
 .cond {
   color: var(--subtext);
-  font-size: 14px;
+  margin-top: 4px;
 }
 
 /* Chips */
@@ -137,12 +129,11 @@ button:disabled {
 }
 
 .chip {
-  padding: 6px 10px;
-  font-size: 12px;
-  background: var(--chip-bg);
-  border: 1px solid var(--chip-border);
+  padding: 6px 12px;
+  background: rgba(0,0,0,0.05);
   border-radius: 10px;
-  color: var(--subtext);
+  font-size: 13px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Forecast */
@@ -155,53 +146,43 @@ button:disabled {
 
 .forecast-day {
   min-width: 110px;
-  padding: 12px;
-  border-radius: 14px;
-  background: #1c1e24;
-  border: 1px solid var(--stroke);
+  background: white;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
   text-align: center;
 }
 
-.forecast-day h4 {
-  margin: 0 0 6px;
-  font-weight: 500;
-}
-
 .forecast-temp {
-  font-size: 16px;
-  margin-bottom: 4px;
+  margin-top: 6px;
+  font-weight: 600;
 }
 
-/* Hourly */
+/* Hourly Strip */
 
 .hourly-strip {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   gap: 12px;
   overflow-x: auto;
 }
 
 .hour-card {
-  min-width: 100px;
-  padding: 10px;
-  background: #1c1e24;
-  border-radius: 14px;
-  border: 1px solid var(--stroke);
+  min-width: 110px;
+  background: white;
+  border-radius: 16px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .hour-time {
-  font-size: 14px;
   color: var(--subtext);
+  font-size: 14px;
 }
 
 .hour-temp {
-  font-size: 18px;
+  font-size: 20px;
   margin: 6px 0;
-}
-
-.hour-cond {
-  font-size: 13px;
-  color: var(--subtext);
 }
 
 /* Loader */
@@ -209,13 +190,15 @@ button:disabled {
 .loader {
   width: 32px;
   height: 32px;
-  border: 4px solid rgba(255,255,255,0.2);
+  border: 4px solid rgba(0,0,0,0.07);
   border-top: 4px solid var(--accent);
-  margin: 16px auto;
   border-radius: 50%;
+  margin: 16px auto;
   animation: spin .7s linear infinite;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 .hidden { display: none; }
