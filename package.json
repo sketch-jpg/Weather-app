@@ -1,5 +1,5 @@
 {
-  "name": "weather-dashboard-global",
+  "name": "apple-weather-dashboard",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
