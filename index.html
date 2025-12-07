@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Weather Dashboard</title>
+  <title>Weather Dashboard</title>
+
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Icons -->
+  <!-- Skycons for animated icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
+
   <div class="app-container">
 
-    <!-- Header -->
     <header class="header">
       <h1 class="title">Weather Dashboard</h1>
-      <p class="subtitle">Modern UI — Worldwide Forecasts & Insights</p>
+      <p class="subtitle">Apple-style UI · Worldwide Forecasts & Insights</p>
     </header>
 
     <main class="layout">
 
       <!-- SEARCH WEATHER -->
-      <section class="card search-card glass">
+      <section class="card glass">
         <div class="card-header">
-          <h2>Search City</h2>
+          <h2>Search Weather</h2>
         </div>
-
-        <div class="body">
+        <div class="card-body">
           <div class="search-row">
-            <input id="cityInput" type="text" placeholder="Search any city worldwide..." />
+            <input id="cityInput" type="text" placeholder="Enter a city, locality, airport..." />
             <button id="searchBtn">Search</button>
           </div>
 
@@ -43,7 +44,7 @@
                 <h3 id="cityName"></h3>
                 <p id="condition" class="cond"></p>
               </div>
-              <canvas id="iconCanvas" width="80" height="80"></canvas>
+              <canvas id="iconCanvas" width="90" height="90"></canvas>
             </div>
 
             <div class="result-bottom">
@@ -55,19 +56,19 @@
       </section>
 
       <!-- WORLD WEATHER -->
-      <section class="card world-card glass">
+      <section class="card glass">
         <div class="card-header">
           <h2>World Weather (Select)</h2>
         </div>
 
-        <div class="body">
+        <div class="card-body">
           <div class="select-grid">
             <select id="continentSelect"><option value="">Continent</option></select>
             <select id="countrySelect" disabled><option value="">Country</option></select>
           </div>
 
           <div class="search-row small">
-            <input id="locCityInput" type="text" placeholder="City in selected country..." disabled />
+            <input id="locCityInput" type="text" placeholder="Enter a city..." disabled />
             <button id="locCityBtn" disabled>Load</button>
           </div>
 
@@ -77,7 +78,7 @@
                 <h3 id="locCityName"></h3>
                 <p id="locCondition" class="cond"></p>
               </div>
-              <canvas id="locIconCanvas" width="70" height="70"></canvas>
+              <canvas id="locIconCanvas" width="80" height="80"></canvas>
             </div>
 
             <div class="result-bottom">
@@ -88,30 +89,29 @@
         </div>
       </section>
 
-      <!-- FORECAST -->
-      <section class="card forecast-card glass">
+      <!-- 7-DAY FORECAST -->
+      <section class="card glass">
         <div class="card-header">
           <h2>7-Day Forecast</h2>
         </div>
-
-        <div class="body">
+        <div class="card-body">
           <div id="forecast" class="forecast-grid"></div>
         </div>
       </section>
 
       <!-- HOURLY -->
-      <section class="card hourly-card glass">
+      <section class="card glass">
         <div class="card-header">
           <h2>Next 24 Hours</h2>
         </div>
-
-        <div class="body">
+        <div class="card-body">
           <canvas id="hourlyChart"></canvas>
           <div id="hourlyStrip" class="hourly-strip"></div>
         </div>
       </section>
 
     </main>
+
   </div>
 
   <script type="module" src="/main.js"></script>
